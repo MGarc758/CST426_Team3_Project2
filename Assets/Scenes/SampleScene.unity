@@ -349,7 +349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   centerCircle: {fileID: 492194850}
-  rotationSpeed: 500
+  rotationSpeed: 50
 --- !u!23 &492194852
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1032,7 +1032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outermostCircle: {fileID: 1230568925}
   innermostCircle: {fileID: 1868282284}
-  rotationSpeed: 100
+  rotationSpeed: 75
 --- !u!23 &1230568927
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1237,7 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   outermostCircle: {fileID: 1230568925}
   innermostCircle: {fileID: 1868282284}
-  rotationSpeed: 1000
+  rotationSpeed: 75
 --- !u!23 &1868282286
 MeshRenderer:
   m_ObjectHideFlags: 0
