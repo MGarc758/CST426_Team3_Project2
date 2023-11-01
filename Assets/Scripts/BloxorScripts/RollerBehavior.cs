@@ -28,16 +28,12 @@ public class RollerBehavior : MonoBehaviour
             inputActive = true;
             float angle = 90f;
             
-            // Vector3 axis = GetAxis(rollDirection);
-            // Vector3 directionVector = GetDirectionVector(rollDirection);
-            // Vector2 pivotOffset = GetPivotOffset(rollDirection);
+            Vector3 axis = GetAxis();
+            Vector3 directionVector = GetDirectionVector();
+            Vector2 pivotOffset = GetPivotOffset();
 
             pivot.position = transform.position + (directionVector * pivotOffset.x) + (Vector3.down * pivotOffset.y);
-
-            //simulate before the action in order to get an ideal result
-            CopyTransformData(transform, ghostPlayer);
-            ghostPlayer.RotateAround(pivot.position, axis, angle);
-
+            
             float elapsedTime = 0f;
 
             while (elapsedTime < rollDuration)
@@ -48,20 +44,12 @@ public class RollerBehavior : MonoBehaviour
                 yield return null;
             }
 
-            CopyTransformData(ghostPlayer, transform);
-
             isRolling = false;
         }
         
     }
 
-    public void CopyTransformData(Transform source, Transform target)
-    {
-        target.localPosition = source.localPosition;
-        target.localEulerAngles = source.localEulerAngles;
-    }
 
-    
     // private Vector3 GetAxis(Direction direction)
     // {
     //     switch (direction)
