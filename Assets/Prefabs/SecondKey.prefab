@@ -238,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1261062290171818156}
   - component: {fileID: 5003290106469984662}
-  - component: {fileID: 3568009168095970969}
+  - component: {fileID: 8865547673365375196}
   m_Layer: 0
   m_Name: SecondKey
   m_TagString: Untagged
@@ -285,30 +285,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0.00024982356, y: 0.005, z: 0}
---- !u!205 &3568009168095970969
-LODGroup:
+--- !u!114 &8865547673365375196
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6341560004026327695}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 1
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.6
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.3
-    fadeTransitionWidth: 0
-    renderers: []
-  - screenRelativeHeight: 0.1
-    fadeTransitionWidth: 0
-    renderers: []
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d01750b9115714780e716578e80323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  referenceItem: {fileID: 11400000, guid: f9ca09b8cd63efc4ba4e3c7e6064ac03, type: 2}
 --- !u!1 &6987732058596420546
 GameObject:
   m_ObjectHideFlags: 0

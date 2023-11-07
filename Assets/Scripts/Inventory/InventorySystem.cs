@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[Serializable]
 public class InventorySystem : MonoBehaviour
 {
     public static InventorySystem current;
@@ -12,7 +13,14 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        current = this;
+        if (current == null)
+        {
+            current = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
         inventory = new List<InventoryItem>();
         m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
     }
