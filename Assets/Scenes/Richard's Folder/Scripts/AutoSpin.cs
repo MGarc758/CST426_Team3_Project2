@@ -37,32 +37,36 @@ public class AutoSpin : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Stop the current ring
-            isMoving[currentRingIndex] = false;
-
-            // Check if the visible cubes on the current ring are aligned with the trigger cubes
-            bool cubesAligned = AreCubesAligned(rings[currentRingIndex]);
-
-            if (cubesAligned)
+            if (currentRingIndex < rings.Length)
             {
-                // Move to the next ring if the cubes are aligned
-                currentRingIndex++;
+                // Stop the current ring
+                isMoving[currentRingIndex] = false;
 
-                // If all rings have been stopped and checked, you can add more actions here
-                if (currentRingIndex >= rings.Length)
+                // Check if the visible cubes on the current ring are aligned with the trigger cubes
+                bool cubesAligned = AreCubesAligned(rings[currentRingIndex]);
+
+                if (cubesAligned)
                 {
-                    Debug.Log("Puzzle completed!");
-                    // You can add more actions here if needed.
+                    // Move to the next ring if the cubes are aligned
+                    currentRingIndex++;
+                    rotationSpeed += rotationSpeed + 30;
+
+                    // If all rings have been stopped and checked, you can add more actions here
+                    if (currentRingIndex >= rings.Length)
+                    {
+                        Debug.Log("Puzzle completed!");
+                        // You can add more actions here if needed.
+                    }
+                    else
+                    {
+                        isMoving[currentRingIndex] = true; // Start the next ring
+                    }
                 }
                 else
                 {
-                    isMoving[currentRingIndex] = true; // Start the next ring
+                    // Not all cubes are aligned, so allow another attempt
+                    isMoving[currentRingIndex] = true;
                 }
-            }
-            else
-            {
-                // Not all cubes are aligned, so allow another attempt
-                isMoving[currentRingIndex] = true;
             }
         }
     }
