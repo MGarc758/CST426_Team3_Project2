@@ -14,7 +14,7 @@ public class GameManager1 : MonoBehaviour, IObserver
         {
             case(Puzzles.SpinPuzzleIncrement):
                 count++;
-                if (count == 6)
+                if (count == 3)
                 {
                     Debug.Log("Unlocked the Door");
                 }
