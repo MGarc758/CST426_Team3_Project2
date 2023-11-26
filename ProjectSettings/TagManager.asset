@@ -5,16 +5,17 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trigger
+  - Cube
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - DirectionWalls
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Ground
+  - BloxorPlayer
+  - DeathPlane
   - 
   - 
   - 
