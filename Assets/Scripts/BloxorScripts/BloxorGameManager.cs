@@ -6,18 +6,22 @@ using UnityEngine;
 public class BloxorGameManager : MonoBehaviour
 {
     public GameObject firstLayer;
-
     public GameObject secondLayer;
-
     public GameObject thirdLayer;
-
-    public GameObject blockObject;
+    public GameObject blockObjectPrefab;
+    public GameObject rotationObjectPrefab;
+    public GameObject blk;
+    public GameObject rtCube;
 
     private string currentLayer;
 
     private void Awake()
     {
         currentLayer = "First";
+        blk = Instantiate(blockObjectPrefab);
+        rtCube = Instantiate(rotationObjectPrefab);
+
+        blk.GetComponent<RollerBehavior>().rotationPointObject = rtCube;
     }
 
     public void victorySwap()
@@ -44,8 +48,7 @@ public class BloxorGameManager : MonoBehaviour
                 break;
         }
 
-        blockObject.transform.position = new Vector3(9f, 2.1f, 6f);
-        blockObject.transform.eulerAngles = Vector3.zero;
+        Respawn(false);
     }
 
     public void FinalVictory()
@@ -64,4 +67,24 @@ public class BloxorGameManager : MonoBehaviour
     {
         
     }
+
+    public void Respawn(bool dead)
+    {
+        if (dead)
+        {
+            currentLayer = "First";
+            secondLayer.SetActive(false);
+            thirdLayer.SetActive(false);
+            firstLayer.SetActive(true);
+        }
+
+        Destroy(blk);
+        Destroy(rtCube);
+        
+        blk = Instantiate(blockObjectPrefab);
+        rtCube = Instantiate(rotationObjectPrefab);
+
+        blk.GetComponent<RollerBehavior>().rotationPointObject = rtCube;
+    }
+    
 }

@@ -12,9 +12,9 @@ public class GoalBlockScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Debug.Log("TRIGGERING");
-        if (collision.gameObject.name == "PuzzleRectangle")
+        if (collision.gameObject.layer == 7)
         {
-            if (playerBlock.GetComponent<RollerBehavior>().CheckIfVertical())
+            if (collision.gameObject.GetComponent<RollerBehavior>().CheckIfVertical())
             {
                 layerManager.GetComponent<BloxorGameManager>().victorySwap();
             }
