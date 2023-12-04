@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerBehavior : MonoBehaviour
 {
-
     [SerializeField] private OxygenBar _oxygenBar;
     
     private WaitForSeconds refreshIntervalWait = new WaitForSeconds(1);
@@ -32,7 +31,7 @@ public class PlayerBehavior : MonoBehaviour
         _oxygenBar.setOxygen(OxygenManager.oxygenManager._playerOxygen.Oxygen);
     }
 
-    private void PlayerHeal(int healing)
+    public void PlayerHeal(int healing)
     {
         OxygenManager.oxygenManager._playerOxygen.OxygenGain(healing);
         
