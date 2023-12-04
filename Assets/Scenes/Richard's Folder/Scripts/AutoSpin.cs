@@ -77,14 +77,14 @@ public class AutoSpin : MonoBehaviour
         for (int i = 0; i < visibleCubes.Length; i += 2)
         {
             Transform cube1 = ring.GetChild(0);
-            Transform cube2 = ring.GetChild(1);
+            //Transform cube2 = ring.GetChild(1);
 
             // Find the corresponding trigger cubes
             Transform triggerCube1 = triggerCubes[i];
-            Transform triggerCube2 = triggerCubes[i + 1];
+            //Transform triggerCube2 = triggerCubes[i + 1];
 
-            if (Vector3.Distance(cube1.position, triggerCube1.position) > snapMargin ||
-                Vector3.Distance(cube2.position, triggerCube2.position) > snapMargin)
+            if (Vector3.Distance(cube1.position, triggerCube1.position) > snapMargin)// ||
+                //Vector3.Distance(cube2.position, triggerCube2.position) > snapMargin)
             {
                 return false; // At least one cube is not aligned
             }
