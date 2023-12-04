@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AutoSpin : MonoBehaviour
 {
@@ -9,9 +11,15 @@ public class AutoSpin : MonoBehaviour
     public Transform[] triggerCubes; // Array of the trigger cube GameObjects
     public float rotationSpeed = 30f;
     public float snapMargin = 1f; // Adjust this threshold as needed
-
+    public GameObject oxygen;
+    
     private bool[] isMoving; // To control the rotation of each ring
     private int currentRingIndex; // To track the current ring
+
+    private void Awake()
+    {
+        oxygen = GameObject.Find("FirstPersonPlayer");
+    }
 
     private void Start()
     {
@@ -22,6 +30,12 @@ public class AutoSpin : MonoBehaviour
             isMoving[i] = true;
         }
         currentRingIndex = 0;
+        float yRotation1 = Random.Range(-300f, 300f);
+        float yRotation2 = Random.Range(-300f, 300f);
+        float yRotation3 = Random.Range(-300f, 300f);
+        rings[0].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation1, 0);
+        rings[1].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation2, 0);
+        rings[2].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation3, 0);
     }
 
     private void Update()
@@ -54,8 +68,9 @@ public class AutoSpin : MonoBehaviour
                     // If all rings have been stopped and checked, you can add more actions here
                     if (currentRingIndex >= rings.Length)
                     {
-                        Debug.Log("Puzzle completed!");
+                        //Debug.Log("Puzzle completed!");
                         // You can add more actions here if needed.
+                        oxygen.GetComponent<PlayerBehavior>().PlayerHeal(300);
                     }
                     else
                     {
@@ -77,14 +92,14 @@ public class AutoSpin : MonoBehaviour
         for (int i = 0; i < visibleCubes.Length; i += 2)
         {
             Transform cube1 = ring.GetChild(0);
-            Transform cube2 = ring.GetChild(1);
+            //Transform cube2 = ring.GetChild(1);
 
             // Find the corresponding trigger cubes
             Transform triggerCube1 = triggerCubes[i];
-            Transform triggerCube2 = triggerCubes[i + 1];
+            //Transform triggerCube2 = triggerCubes[i + 1];
 
-            if (Vector3.Distance(cube1.position, triggerCube1.position) > snapMargin ||
-                Vector3.Distance(cube2.position, triggerCube2.position) > snapMargin)
+            if (Vector3.Distance(cube1.position, triggerCube1.position) > snapMargin)// ||
+                //Vector3.Distance(cube2.position, triggerCube2.position) > snapMargin)
             {
                 return false; // At least one cube is not aligned
             }
