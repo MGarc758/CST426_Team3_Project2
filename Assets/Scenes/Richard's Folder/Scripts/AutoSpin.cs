@@ -9,7 +9,7 @@ public class AutoSpin : MonoBehaviour
     public Transform[] triggerCubes; // Array of the trigger cube GameObjects
     public float rotationSpeed = 30f;
     public float snapMargin = 1f; // Adjust this threshold as needed
-
+    
     private bool[] isMoving; // To control the rotation of each ring
     private int currentRingIndex; // To track the current ring
 
@@ -22,6 +22,12 @@ public class AutoSpin : MonoBehaviour
             isMoving[i] = true;
         }
         currentRingIndex = 0;
+        float yRotation1 = Random.Range(-300f, 300f);
+        float yRotation2 = Random.Range(-300f, 300f);
+        float yRotation3 = Random.Range(-300f, 300f);
+        rings[0].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation1, 0);
+        rings[1].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation2, 0);
+        rings[2].GetComponent<Transform>().eulerAngles = new Vector3(0, yRotation3, 0);
     }
 
     private void Update()
