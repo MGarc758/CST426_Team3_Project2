@@ -1202,7 +1202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   terminalDestination: {fileID: 6067829425734704170}
-  originalStartingPosition: {fileID: 1608517207}
+  originalStartingPosition: {fileID: 485579834}
   transitionTime: 2
   player: {fileID: 184872729}
   manager: {fileID: 4635968637154069010}
@@ -5773,7 +5773,7 @@ Transform:
   m_GameObject: {fileID: 485579833}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.8734804, z: -0, w: 0.48685953}
-  m_LocalPosition: {x: 28.382, y: 0.186, z: -13.187}
+  m_LocalPosition: {x: 28.382, y: 0.5, z: -13.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
