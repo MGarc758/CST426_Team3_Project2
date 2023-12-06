@@ -54,7 +54,7 @@ public class TerminalScript : MonoBehaviour
             cameraFollow.MoveToPosition(originalStartingPosition.position, transitionTime);
 
             // Unlock player movement after the camera finishes moving
-            StartCoroutine(UnlockPlayerAfterDelay(transitionTime));
+            StartCoroutine(UnlockPlayerAfterDelay(2));
 
             isPlayerLocked = false;
         }
