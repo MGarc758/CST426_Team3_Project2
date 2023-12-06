@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AutoSpin : MonoBehaviour
 {
@@ -9,9 +11,15 @@ public class AutoSpin : MonoBehaviour
     public Transform[] triggerCubes; // Array of the trigger cube GameObjects
     public float rotationSpeed = 30f;
     public float snapMargin = 1f; // Adjust this threshold as needed
+    public GameObject oxygen;
     
     private bool[] isMoving; // To control the rotation of each ring
     private int currentRingIndex; // To track the current ring
+
+    private void Awake()
+    {
+        oxygen = GameObject.Find("FirstPersonPlayer");
+    }
 
     private void Start()
     {
@@ -60,8 +68,9 @@ public class AutoSpin : MonoBehaviour
                     // If all rings have been stopped and checked, you can add more actions here
                     if (currentRingIndex >= rings.Length)
                     {
-                        Debug.Log("Puzzle completed!");
+                        //Debug.Log("Puzzle completed!");
                         // You can add more actions here if needed.
+                        oxygen.GetComponent<PlayerBehavior>().PlayerHeal(300);
                     }
                     else
                     {

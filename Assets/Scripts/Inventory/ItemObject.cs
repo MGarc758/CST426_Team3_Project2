@@ -7,6 +7,8 @@ public class ItemObject : MonoBehaviour
 {
     public InventoryItemData referenceItem;
 
+    public Canvas winCanvas;
+
     private BoxCollider _boxCollider;
 
     private void Awake()
@@ -21,11 +23,7 @@ public class ItemObject : MonoBehaviour
        
         var player = other.transform.GetComponent<PlayerMovement>();
 
-        if (!player)
-        {
-            return;
-        }
-        else
+        if (player)
         {
             OnHandlePickupItem();
         }
@@ -33,7 +31,16 @@ public class ItemObject : MonoBehaviour
 
     public void OnHandlePickupItem()
     {
-        InventorySystem.current.Add(referenceItem);
+        ShowWinCanvas();
         Destroy(gameObject);
+    }
+    
+     private void ShowWinCanvas()
+    {
+        if (winCanvas != null)
+        {
+            winCanvas.gameObject.SetActive(true);
+        }
+
     }
 }

@@ -10,34 +10,50 @@ public class PlayerMovement : MonoBehaviour
 
     public float gravity = -9.81f;
 
-    private Vector3 velocity;
+    public Vector3 velocity;
     private bool isGrounded;
+    private bool isPlayerLocked = false;
+
+
     
     public Transform groundCheck;
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     
-    
+
+    public void LockPlayer()
+    {
+        isPlayerLocked = true;
+        velocity = new Vector3(0, 0, 0);
+    }
+
+    public void UnlockPlayer()
+    {
+        isPlayerLocked = false;
+    }
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0 && !isPlayerLocked)
         {
             velocity.y = -2f;
         }
-        
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
 
-        Vector3 move = transform.right * x + transform.forward * z;
+        if (!isPlayerLocked)
+        {
 
-        controller.Move(move * speed * Time.deltaTime);
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
 
-        velocity.y += gravity * Time.deltaTime;
+            Vector3 move = transform.right * x + transform.forward * z;
 
-        controller.Move(velocity * Time.deltaTime);
+            controller.Move(move * speed * Time.deltaTime);
 
+            velocity.y += gravity * Time.deltaTime;
 
+            controller.Move(velocity * Time.deltaTime);
+
+        }
     }
 }
