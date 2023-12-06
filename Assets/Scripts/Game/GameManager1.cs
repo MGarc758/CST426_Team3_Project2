@@ -8,7 +8,7 @@ public class GameManager1 : MonoBehaviour, IObserver
     [SerializeField] private Subject _subject1;
     [SerializeField] private Subject _subject2;
     public int count = 0;
-    public GameObject oxygen;
+    private GameObject oxygen;
     private void Awake()
     {
         oxygen = GameObject.Find("FirstPersonPlayer");

@@ -11,7 +11,7 @@ public class AutoSpin : MonoBehaviour
     public Transform[] triggerCubes; // Array of the trigger cube GameObjects
     public float rotationSpeed = 30f;
     public float snapMargin = 1f; // Adjust this threshold as needed
-    public GameObject oxygen;
+    private GameObject oxygen;
     
     private bool[] isMoving; // To control the rotation of each ring
     private int currentRingIndex; // To track the current ring

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour, IObserver
     [SerializeField] private Subject _subject4;
     [SerializeField] private Subject _subject5;
     public int count = 0;
-    public GameObject oxygen;
+    private GameObject oxygen;
     
     private void Awake()
     {
