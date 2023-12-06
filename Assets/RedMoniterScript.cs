@@ -56,6 +56,7 @@ public class RedMoniterScript : MonoBehaviour
         }
         else
         {
+            
             puzzle.transform.GetChild(4).GetComponent<BloxorGameManager>().Respawn(true);
             puzzle.SetActive(false);
             
