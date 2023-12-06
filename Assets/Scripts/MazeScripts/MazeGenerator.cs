@@ -36,7 +36,7 @@ public class MazeGenerator : MonoBehaviour
 
         GenerateMaze(null, _mazeGrid[0, 0]);
         
-        maze.transform.Translate(200,0,0);
+        maze.transform.Translate(10,0,40);
     }
 
     private void GenerateMaze(MazeCell previousCell, MazeCell currentCell)

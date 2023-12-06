@@ -13,16 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     {
         StartCoroutine(OxygenDepletion());
     }
-
-    void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            PlayerHeal(10);
-            Debug.Log(OxygenManager.oxygenManager._playerOxygen.Oxygen);
-        }
-    }
+    
 
     private void PlayerTakeDmg(int dmg)
     {
@@ -44,8 +35,15 @@ public class PlayerBehavior : MonoBehaviour
         {
             yield return refreshIntervalWait;
             PlayerTakeDmg(1);
-            Debug.Log(OxygenManager.oxygenManager._playerOxygen.Oxygen); 
+            Debug.Log(OxygenManager.oxygenManager._playerOxygen.Oxygen);
+
+            if (OxygenManager.oxygenManager._playerOxygen.Oxygen == 0)
+            {
+                Debug.Log("Player Died of Oxygen");
+            }
         }
+        
+        
 
     }
 }
