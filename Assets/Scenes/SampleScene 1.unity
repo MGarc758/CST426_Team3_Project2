@@ -21764,6 +21764,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MazeMinigame
       objectReference: {fileID: 0}
+    - target: {fileID: 3836624901575751328, guid: 61a22e9ad8101a747a1b198acbd0e541, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5514191176025765542, guid: 61a22e9ad8101a747a1b198acbd0e541, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
