@@ -1827,6 +1827,8 @@ MonoBehaviour:
   speed: 12
   gravity: -9.81
   velocity: {x: 0, y: 0, z: 0}
+  isGrounded: 0
+  isPlayerLocked: 0
   groundCheck: {fileID: 184872732}
   groundDistance: 0.4
   groundMask:
@@ -1886,6 +1888,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e69c5888a6df476cad971658fe6c355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMoving: 0
 --- !u!1001 &187974303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10117,7 +10120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terminalDestination: {fileID: 147233217}
   originalStartingPosition: {fileID: 114982880}
-  transitionTime: 10
+  transitionTime: 2
   player: {fileID: 184872729}
 --- !u!1001 &1039488200
 PrefabInstance:
@@ -40321,7 +40324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &9161110433178668319
 GameObject:
   m_ObjectHideFlags: 0

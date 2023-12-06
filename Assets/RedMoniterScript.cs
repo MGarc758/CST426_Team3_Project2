@@ -48,7 +48,8 @@ public class RedMoniterScript : MonoBehaviour
             puzzle.SetActive(true);
             camera.GetComponent<MouseLook>().enabled = false;
             // Move the empty GameObject (with CameraFollow script) to the terminal destination
-            camera.transform.position = terminalDestination.position;
+            cameraFollow.MoveToPosition(terminalDestination.position, transitionTime);
+            // camera.transform.position = terminalDestination.position;
             camera.transform.rotation = terminalDestination.rotation;
             // Lock player movement
             playerMovement.LockPlayer();
@@ -60,11 +61,14 @@ public class RedMoniterScript : MonoBehaviour
             puzzle.transform.GetChild(4).GetComponent<BloxorGameManager>().Respawn(true);
             puzzle.SetActive(false);
             
-            camera.GetComponent<MouseLook>().enabled = true;
+            //camera.GetComponent<MouseLook>().enabled = true;
             // Move the empty GameObject (with CameraFollow script) to the original starting position
-            //cameraFollow.MoveToPosition(originalStartingPosition.position, transitionTime);
-
-            camera.transform.position = originalStartingPosition.position;
+            cameraFollow.MoveToPosition(originalStartingPosition.position, transitionTime);
+            // camera.transform.position = originalStartingPosition.position;
+            // camera.transform.rotation = originalStartingPosition.rotation;
+            
+           // camera.transform.SetParent(player.transform);
+            // player.transform.position = originalStartingPosition.position;
             // Unlock player movement after the camera finishes moving
             StartCoroutine(UnlockPlayerAfterDelay(transitionTime));
 
