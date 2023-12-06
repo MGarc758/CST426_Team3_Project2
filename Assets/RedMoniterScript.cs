@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RedMoniterScript : MonoBehaviour
 {
-   public Transform terminalDestination; // Set the destination for the camera when entering the terminal
+    public Transform terminalDestination; // Set the destination for the camera when entering the terminal
     public Transform originalStartingPosition; // Set the original starting position for the camera
     public float transitionTime = 2f; // Set the time it takes to transition to the destination
     public GameObject player; // Reference to the player GameObject
@@ -12,9 +10,8 @@ public class RedMoniterScript : MonoBehaviour
     private Vector3 currentCameraPosition;
     private PlayerMovement playerMovement;
     private CameraFollow cameraFollow;
-    public GameObject puzzle;
-    public GameObject camera;
-    
+    public GameObject manager;
+
     private void Start()
     {
         // Save the current camera position when the terminal script starts
@@ -45,32 +42,21 @@ public class RedMoniterScript : MonoBehaviour
     {
         if (!isPlayerLocked)
         {
-            puzzle.SetActive(true);
-            camera.GetComponent<MouseLook>().enabled = false;
+            manager.GetComponent<BloxorGameManager>().blob();
             // Move the empty GameObject (with CameraFollow script) to the terminal destination
             cameraFollow.MoveToPosition(terminalDestination.position, transitionTime);
-            // camera.transform.position = terminalDestination.position;
-            camera.transform.rotation = terminalDestination.rotation;
+
             // Lock player movement
             playerMovement.LockPlayer();
             isPlayerLocked = true;
         }
         else
         {
-            
-            puzzle.transform.GetChild(4).GetComponent<BloxorGameManager>().Respawn(true);
-            puzzle.SetActive(false);
-            
-            camera.GetComponent<MouseLook>().enabled = true;
             // Move the empty GameObject (with CameraFollow script) to the original starting position
             cameraFollow.MoveToPosition(originalStartingPosition.position, transitionTime);
-            // camera.transform.position = originalStartingPosition.position;
-            camera.transform.rotation = originalStartingPosition.rotation;
-            
-           // camera.transform.SetParent(player.transform);
-            // player.transform.position = originalStartingPosition.position;
+
             // Unlock player movement after the camera finishes moving
-            StartCoroutine(UnlockPlayerAfterDelay(transitionTime));
+            StartCoroutine(UnlockPlayerAfterDelay(2));
 
             isPlayerLocked = false;
         }

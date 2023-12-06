@@ -17,7 +17,7 @@ public class BloxorGameManager : MonoBehaviour
     
     private string currentLayer;
 
-    private void Awake()
+    public void blob()
     {
         currentLayer = "First";
         blk = Instantiate(blockObjectPrefab);
