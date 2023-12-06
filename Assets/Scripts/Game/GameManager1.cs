@@ -8,6 +8,12 @@ public class GameManager1 : MonoBehaviour, IObserver
     [SerializeField] private Subject _subject1;
     [SerializeField] private Subject _subject2;
     public int count = 0;
+    public GameObject oxygen;
+    private void Awake()
+    {
+        oxygen = GameObject.Find("FirstPersonPlayer");
+    }
+    
     public void OnNotify(Puzzles puzzles)
     {
         switch (puzzles)
@@ -16,7 +22,7 @@ public class GameManager1 : MonoBehaviour, IObserver
                 count++;
                 if (count == 3)
                 {
-                    Debug.Log("Unlocked the Door");
+                    oxygen.GetComponent<PlayerBehavior>().PlayerHeal(300);
                 }
                 return;
             case(Puzzles.SpinPuzzleDecrement):
