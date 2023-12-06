@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TerminalScript : MonoBehaviour
+public class RedMoniterScript : MonoBehaviour
 {
     public Transform terminalDestination; // Set the destination for the camera when entering the terminal
     public Transform originalStartingPosition; // Set the original starting position for the camera
@@ -10,6 +10,7 @@ public class TerminalScript : MonoBehaviour
     private Vector3 currentCameraPosition;
     private PlayerMovement playerMovement;
     private CameraFollow cameraFollow;
+    public GameObject manager;
 
     private void Start()
     {
@@ -37,10 +38,11 @@ public class TerminalScript : MonoBehaviour
         }
     }
 
-    private void ToggleCameraPosition()
+    public void ToggleCameraPosition()
     {
         if (!isPlayerLocked)
         {
+            manager.GetComponent<BloxorGameManager>().blob();
             // Move the empty GameObject (with CameraFollow script) to the terminal destination
             cameraFollow.MoveToPosition(terminalDestination.position, transitionTime);
 

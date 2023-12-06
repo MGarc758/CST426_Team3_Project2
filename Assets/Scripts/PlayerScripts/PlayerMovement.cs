@@ -11,8 +11,8 @@ public class PlayerMovement : MonoBehaviour
     public float gravity = -9.81f;
 
     public Vector3 velocity;
-    private bool isGrounded;
-    private bool isPlayerLocked = false;
+    public bool isGrounded;
+    public bool isPlayerLocked = false;
 
 
     
