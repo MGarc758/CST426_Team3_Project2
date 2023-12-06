@@ -12,7 +12,9 @@ public class BloxorGameManager : MonoBehaviour
     public GameObject rotationObjectPrefab;
     public GameObject blk;
     public GameObject rtCube;
-
+    public GameObject doorToDestroy;
+    public GameObject terminal;
+    
     private string currentLayer;
 
     private void Awake()
@@ -53,8 +55,9 @@ public class BloxorGameManager : MonoBehaviour
 
     public void FinalVictory()
     {
-        Debug.Log("YAY\n");
-        //not sure yet
+       Destroy(doorToDestroy);
+       terminal.GetComponent<RedMoniterScript>().ToggleCameraPosition();
+       //not sure yet
     }
     // Start is called before the first frame update
     void Start()
