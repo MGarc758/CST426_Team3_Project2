@@ -1203,7 +1203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   terminalDestination: {fileID: 6067829425734704170}
   originalStartingPosition: {fileID: 485579834}
-  transitionTime: 2
+  transitionTime: 10
   player: {fileID: 184872729}
   manager: {fileID: 4635968637154069010}
 --- !u!4 &82264022 stripped
@@ -1827,7 +1827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 184872731}
-  speed: 12
+  speed: 6
   gravity: -9.81
   velocity: {x: 0, y: 0, z: 0}
   isGrounded: 0
@@ -17891,6 +17891,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SeventhRoomDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 1044084870296165693, guid: dc3018c5a3ba90249837ee0b898237c7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7636572561420084979, guid: dc3018c5a3ba90249837ee0b898237c7, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.2435892
@@ -22188,6 +22192,10 @@ PrefabInstance:
       propertyPath: door
       value: 
       objectReference: {fileID: 449589273}
+    - target: {fileID: 6821049579169656830, guid: 61a22e9ad8101a747a1b198acbd0e541, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

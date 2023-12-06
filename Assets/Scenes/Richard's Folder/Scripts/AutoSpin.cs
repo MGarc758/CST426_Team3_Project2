@@ -70,7 +70,7 @@ public class AutoSpin : MonoBehaviour
                     {
                         //Debug.Log("Puzzle completed!");
                         // You can add more actions here if needed.
-                        oxygen.GetComponent<PlayerBehavior>().PlayerHeal(30);
+                        oxygen.GetComponent<PlayerBehavior>().PlayerHeal(90);
                     }
                     else
                     {
